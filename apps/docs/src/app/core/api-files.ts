@@ -52,8 +52,7 @@ export const API_FILES = {
         'FormInputMessageGroupComponent'
     ],
     formMessage: ['FormInputMessageGroupComponent'],
-    globalConfig: [
-    ],
+    globalConfig: [],
     icon: ['IconComponent'],
     infoLabel: ['InfoLabelComponent'],
     infiniteScroll: ['InfiniteScrollDirective'],
@@ -144,6 +143,7 @@ export const API_FILES = {
         'NotificationDefault',
         'NotificationRef'
     ],
+    objectMarker: ['ObjectMarkerModule', 'ObjectMarkerComponent'],
     objectStatus: ['ObjectStatusModule', 'ObjectStatusComponent'],
     pagination: ['PaginationComponent', 'PaginationModel', 'PaginationService'],
     panel: ['PanelComponent', 'PanelTitleDirective'],

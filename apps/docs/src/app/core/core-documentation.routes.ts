@@ -90,17 +90,23 @@ export const ROUTES: Routes = [
             {
                 path: 'file-uploader',
                 loadChildren: () =>
-                    import('./component-docs/file-uploader/file-uploader-docs.module').then((m) => m.FileUploaderDocsModule)
+                    import('./component-docs/file-uploader/file-uploader-docs.module').then(
+                        (m) => m.FileUploaderDocsModule
+                    )
             },
             {
                 path: 'form-message',
                 loadChildren: () =>
-                    import('./component-docs/form-message/form-message-docs.module').then((m) => m.FormMessageDocsModule)
+                    import('./component-docs/form-message/form-message-docs.module').then(
+                        (m) => m.FormMessageDocsModule
+                    )
             },
             {
                 path: 'global-config',
                 loadChildren: () =>
-                    import('./component-docs/global-config/global-config-docs.module').then((m) => m.GlobalConfigDocsModule)
+                    import('./component-docs/global-config/global-config-docs.module').then(
+                        (m) => m.GlobalConfigDocsModule
+                    )
             },
             {
                 path: 'icon',
@@ -188,6 +194,13 @@ export const ROUTES: Routes = [
                     )
             },
             {
+                path: 'object-marker',
+                loadChildren: () =>
+                    import('./component-docs/object-marker/object-marker-docs.module').then(
+                        (m) => m.ObjectMarkerDocsModule
+                    )
+            },
+            {
                 path: 'object-status',
                 loadChildren: () =>
                     import('./component-docs/object-status/object-status-docs.module').then(
@@ -258,9 +271,7 @@ export const ROUTES: Routes = [
             {
                 path: 'step-input',
                 loadChildren: () =>
-                    import('./component-docs/step-input/step-input-docs.module').then(
-                        (m) => m.StepInputDocsModule
-                    )
+                    import('./component-docs/step-input/step-input-docs.module').then((m) => m.StepInputDocsModule)
             },
             {
                 path: 'switch',

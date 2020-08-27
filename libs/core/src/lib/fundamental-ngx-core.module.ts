@@ -64,6 +64,7 @@ import { StepInputModule } from './step-input/step-input.module';
 import { ComboboxMobileModule } from './combobox/combobox-mobile/combobox-mobile.module';
 import { CarouselModule } from './utils/directives/carousel/carousel.module';
 import { ToolbarModule } from './toolbar/toolbar.module';
+import { ObjectMarkerModule } from './object-marker/object-marker.module';
 
 @NgModule({
     imports: [CommonModule, FormsModule],
@@ -106,6 +107,7 @@ import { ToolbarModule } from './toolbar/toolbar.module';
         MultiInputMobileModule,
         NestedListModule,
         NotificationModule,
+        ObjectMarkerModule,
         ObjectStatusModule,
         PaginationModule,
         PanelModule,
@@ -131,4 +133,4 @@ import { ToolbarModule } from './toolbar/toolbar.module';
     ],
     providers: [AlertService, DialogService, NotificationService]
 })
-export class FundamentalNgxCoreModule { }
+export class FundamentalNgxCoreModule {}
