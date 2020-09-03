@@ -93,6 +93,11 @@ export const ROUTES: Routes = [
                     import('./component-docs/file-uploader/file-uploader-docs.module').then((m) => m.FileUploaderDocsModule)
             },
             {
+                path: 'fixed-card-layout',
+                loadChildren: () =>
+                    import('./component-docs/fixed-card-layout/fixed-card-layout-docs.module').then((m) => m.FixedCardLayoutDocsModule)
+            },
+            {
                 path: 'form-message',
                 loadChildren: () =>
                     import('./component-docs/form-message/form-message-docs.module').then((m) => m.FormMessageDocsModule)
