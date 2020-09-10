@@ -1,1 +1,6 @@
 @import '~fundamental-styles/dist/layout-grid';
+
+.fd-layout-grid--responsive {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 1rem;
+}

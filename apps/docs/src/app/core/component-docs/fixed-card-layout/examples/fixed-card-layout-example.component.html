@@ -1,5 +1,5 @@
-<fd-fixed-card-layout>
-    <div list-card-standard class="item blog">
+<fd-fixed-card-layout [gridHeight]="gridHeight">
+    <div fd-list-card-standard [span]="standardListCardSpan" class="item blog">
         <div class="title">
             <h3>1: Blog Post</h3>
         </div>
@@ -16,7 +16,7 @@
             </p>
         </div>
     </div>
-    <div bar-card-standard class="item photo">
+    <div fd-bar-card-standard [span]="standardBarCardSpan" class="item photo">
         <div class="title">
             <h3>2: Photo</h3>
         </div>
@@ -31,7 +31,7 @@
             </p>
         </div>
     </div>
-    <div list-card-extended class="item photo">
+    <div fd-list-card-extended [span]="extendedListCardSpan" class="item photo">
         <div class="title">
             <h3>3: Photo</h3>
         </div>
@@ -43,7 +43,7 @@
             nibh ut, faucibus leo. Sed lectus libero
         </div>
     </div>
-    <div link-list-image-card class="item project">
+    <div fd-link-list-image-card [span]="imageCardSpan" class="item project">
         <div class="title">
             <h3>4: Project</h3>
         </div>
@@ -67,7 +67,7 @@
             </p>
         </div>
     </div>
-    <div link-list-image-card class="item project">
+    <div fd-link-list-image-card [span]="imageCardSpan" class="item project">
         <div class="title">
             <h3>5: Project</h3>
         </div>
@@ -91,7 +91,7 @@
             </p>
         </div>
     </div>
-    <div list-card-standard class="item blog">
+    <div fd-list-card-standard [span]="standardListCardSpan" class="item blog">
         <div class="title">
             <h3>6: Blog Post</h3>
         </div>
@@ -108,7 +108,7 @@
             </p>
         </div>
     </div>
-    <div link-list-image-card class="item project">
+    <div fd-link-list-image-card [span]="imageCardSpan" class="item project">
         <div class="title">
             <h3>7: Project</h3>
         </div>
@@ -132,7 +132,7 @@
             </p>
         </div>
     </div>
-    <div list-card-standard class="item blog">
+    <div fd-list-card-standard [span]="standardListCardSpan" class="item blog">
         <div class="title">
             <h3>8: Blog Post</h3>
         </div>
@@ -149,7 +149,7 @@
             </p>
         </div>
     </div>
-    <div bar-card-standard class="item photo">
+    <div fd-bar-card-standard [span]="standardBarCardSpan" class="item photo">
         <div class="title">
             <h3>9: Photo</h3>
         </div>
@@ -164,7 +164,7 @@
             </p>
         </div>
     </div>
-    <div list-card-standard class="item blog">
+    <div fd-list-card-standard [span]="standardListCardSpan" class="item blog">
         <div class="title">
             <h3>10: Blog Post</h3>
         </div>
@@ -181,7 +181,7 @@
             </p>
         </div>
     </div>
-    <div bar-card-standard class="item photo">
+    <!-- <div fd-bar-card-standard class="item photo">
         <div class="title">
             <h3>11: Photo</h3>
         </div>
@@ -196,7 +196,7 @@
             </p>
         </div>
     </div>
-    <div link-list-image-card class="item project">
+    <div fd-link-list-image-card class="item project">
         <div class="title">
             <h3>12: Project</h3>
         </div>
@@ -219,5 +219,5 @@
                 Nunc vestibulum lacus et nulla volutpat auctor.
             </p>
         </div>
-    </div>
+    </div> -->
 </fd-fixed-card-layout>

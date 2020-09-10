@@ -1,23 +1,20 @@
-import { Directive, ElementRef, Input } from '@angular/core';
-import { AbstractFdNgxClass } from '../../utils/abstract-fd-ngx-class';
+import { Directive, Input, HostBinding } from '@angular/core';
 
 @Directive({
     selector: '[tableCard], [fd-table-card]'
 })
-export class TableCardDirective extends AbstractFdNgxClass {
+export class TableCardDirective {
     /**
      * name of card
      */
     @Input()
     name: string;
 
-    /** @hidden */
-    _setProperties(): void {
-        this._addStyleToElement('grid-row-end', 'span 8');
-    }
+    /** sets height in terms of span for extended list card in grid layout*/
+    @Input()
+    @HostBinding('style.grid-row-end')
+    span = 'span 8';
 
     /** @hidden */
-    constructor(private elementRef: ElementRef) {
-        super(elementRef);
-    }
+    constructor() {}
 }

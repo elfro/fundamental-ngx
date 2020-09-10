@@ -1,10 +1,9 @@
-import { Directive, ElementRef, Input } from '@angular/core';
-import { AbstractFdNgxClass } from '../../utils/abstract-fd-ngx-class';
+import { Directive, Input, HostBinding } from '@angular/core';
 
 @Directive({
     selector: '[linkListImageCard], [fd-link-list-image-card]'
 })
-export class LinkListImageCardStandardDirective extends AbstractFdNgxClass {
+export class LinkListImageCardStandardDirective {
     /**
      * name of card
      */
@@ -12,20 +11,18 @@ export class LinkListImageCardStandardDirective extends AbstractFdNgxClass {
     name: string;
 
     /** @hidden */
-    _setProperties(): void {
-        this._addStyleToElement('grid-row-end', 'span 7');
-    }
+    @Input()
+    @HostBinding('style.grid-row-end')
+    span = 'span 7';
 
     /** @hidden */
-    constructor(private elementRef: ElementRef) {
-        super(elementRef);
-    }
+    constructor() {}
 }
 
 @Directive({
     selector: '[linkListAvatarCardCondensed], [fd-link-list-avatar-card]'
 })
-export class LinkListAvatarDirective extends AbstractFdNgxClass {
+export class LinkListAvatarDirective {
     /**
      * name of card
      */
@@ -33,54 +30,48 @@ export class LinkListAvatarDirective extends AbstractFdNgxClass {
     name: string;
 
     /** @hidden */
-    _setProperties(): void {
-        this._addStyleToElement('grid-row-end', 'span 10');
-    }
+    @Input()
+    @HostBinding('style.grid-row-end')
+    span = 'span 10';
 
     /** @hidden */
-    constructor(private elementRef: ElementRef) {
-        super(elementRef);
-    }
+    constructor() {}
 }
 
 @Directive({
     selector: '[linkListIconCard], [fd-link-list-icon-card]'
 })
-export class LinkListIconCardExtendedDirective extends AbstractFdNgxClass {
+export class LinkListIconCardExtendedDirective {
     /**
      * name of card
      */
     @Input()
     name: string;
 
-    /** @hidden */
-    _setProperties(): void {
-        this._addStyleToElement('grid-row-end', 'span 8');
-    }
+    /** sets height in terms of span for extended list card in grid layout*/
+    @Input()
+    @HostBinding('style.grid-row-end')
+    span = 'span 8';
 
     /** @hidden */
-    constructor(private elementRef: ElementRef) {
-        super(elementRef);
-    }
+    constructor() {}
 }
 
 @Directive({
     selector: '[linkListNoSubtitleCard], [fd-link-list-no-subtitle-card]'
 })
-export class LinkListNoSubtitleCardExtendedDirective extends AbstractFdNgxClass {
+export class LinkListNoSubtitleCardExtendedDirective {
     /**
      * name of card
      */
     @Input()
     name: string;
 
-    /** @hidden */
-    _setProperties(): void {
-        this._addStyleToElement('grid-row-end', 'span 6');
-    }
+    /** sets height in terms of span for extended list card in grid layout*/
+    @Input()
+    @HostBinding('style.grid-row-end')
+    span = 'span 6';
 
     /** @hidden */
-    constructor(private elementRef: ElementRef) {
-        super(elementRef);
-    }
+    constructor() {}
 }

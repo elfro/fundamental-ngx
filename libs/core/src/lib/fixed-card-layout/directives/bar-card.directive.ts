@@ -1,65 +1,58 @@
-import { Directive, ElementRef, Input } from '@angular/core';
-import { AbstractFdNgxClass } from '../../utils/abstract-fd-ngx-class';
+import { Directive, Input, HostBinding } from '@angular/core';
 
 @Directive({
     selector: '[barCardStandard], [fd-bar-card-standard]'
 })
-export class BarCardStandardDirective extends AbstractFdNgxClass {
+export class BarCardStandardDirective {
     /**
      * name of card
      */
     @Input()
     name: string;
 
-    /** @hidden */
-    _setProperties(): void {
-        this._addStyleToElement('grid-row-end', 'span 6');
-    }
+    /** sets height in terms of span for extended list card in grid layout*/
+    @Input()
+    @HostBinding('style.grid-row-end')
+    span = 'span 6';
 
     /** @hidden */
-    constructor(private elementRef: ElementRef) {
-        super(elementRef);
-    }
+    constructor() {}
 }
 
 @Directive({
     selector: '[barCardCondensed], [fd-bar-card-condensed]'
 })
-export class BarCardCondensedDirective extends AbstractFdNgxClass {
+export class BarCardCondensedDirective {
     /**
      * name of card
      */
     @Input()
     name: string;
 
-    /** @hidden */
-    _setProperties(): void {
-        this._addStyleToElement('grid-row-end', 'span 8');
-    }
+    /** sets height in terms of span for extended list card in grid layout*/
+    @Input()
+    @HostBinding('style.grid-row-end')
+    span = 'span 8';
 
     /** @hidden */
-    constructor(private elementRef: ElementRef) {
-        super(elementRef);
-    }
+    constructor() {}
 }
 
 @Directive({
     selector: '[barCardExtended], [fd-bar-card-extended]'
 })
-export class BarCardExtendedDirective extends AbstractFdNgxClass {
+export class BarCardExtendedDirective {
     /**
      * name of card
      */
     @Input()
     name: string;
 
-    /** @hidden */
-    _setProperties(): void {
-        this._addStyleToElement('grid-row-end', 'span 2');
-    }
+    /** sets height in terms of span for extended list card in grid layout*/
+    @Input()
+    @HostBinding('style.grid-row-end')
+    span = 'span 2';
 
     /** @hidden */
-    constructor(private elementRef: ElementRef) {
-        super(elementRef);
-    }
+    constructor() {}
 }
