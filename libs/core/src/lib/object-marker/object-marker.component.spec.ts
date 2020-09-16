@@ -33,13 +33,15 @@ describe('ObjectMarkerComponent', () => {
 
     it('Should Add Icon', () => {
         component.glyph = 'flag';
+        component.ngAfterViewInit();
         component.buildComponentCssClass();
         fixture.detectChanges();
-        expect(component.elementRef().nativeElement.classList.contains('sap-icon--flag')).toBe(true);
+        expect(component.elementRef().nativeElement.firstChild.classList.contains('sap-icon--flag')).toBe(true);
     });
 
     it('Should Add Clickable Class', () => {
         component.clickable = true;
+        component.ngAfterViewInit();
         component.buildComponentCssClass();
         fixture.detectChanges();
         expect(component.elementRef().nativeElement.classList.contains('fd-object-marker--link')).toBe(true);
