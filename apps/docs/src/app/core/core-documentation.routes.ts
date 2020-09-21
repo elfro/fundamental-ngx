@@ -95,7 +95,9 @@ export const ROUTES: Routes = [
             {
                 path: 'fixed-card-layout',
                 loadChildren: () =>
-                    import('./component-docs/fixed-card-layout/fixed-card-layout-docs.module').then((m) => m.FixedCardLayoutDocsModule)
+                    import('./component-docs/fixed-card-layout/fixed-card-layout-docs.module').then(
+                        (m) => m.FixedCardLayoutDocsModule
+                    )
             },
             {
                 path: 'form-message',

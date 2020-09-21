@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { FixedCardLayoutDocsComponent } from './fixed-card-layout-docs.component';
+import { FixedCardLayoutDocsHeaderComponent } from './fixed-card-layout-docs-header/fixed-card-layout-docs-header.component';
 import { FixedCardLayoutExampleComponent } from './examples/fixed-card-layout-examples.component';
-import { FixedCardLayoutDocsHeaderComponent } from './fixed-card-layout-docs-header/layout-grid-docs-header.component';
+import { CardComponent } from './examples/card.component';
 import { FixedCardLayoutModule } from '@fundamental-ngx/core';
 import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
 import { MatCardModule } from '@angular/material/card';
@@ -23,6 +24,11 @@ const routes: Routes = [
 @NgModule({
     imports: [RouterModule.forChild(routes), SharedDocumentationPageModule, FixedCardLayoutModule, MatCardModule],
     exports: [RouterModule],
-    declarations: [FixedCardLayoutDocsComponent, FixedCardLayoutExampleComponent, FixedCardLayoutDocsHeaderComponent]
+    declarations: [
+        CardComponent,
+        FixedCardLayoutDocsComponent,
+        FixedCardLayoutExampleComponent,
+        FixedCardLayoutDocsHeaderComponent
+    ]
 })
 export class FixedCardLayoutDocsModule {}

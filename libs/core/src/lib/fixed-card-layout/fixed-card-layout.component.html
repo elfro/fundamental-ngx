@@ -1,3 +1,10 @@
-<ng-container>
-    <ng-content></ng-content>
-</ng-container>
+<div #layout class="fd-fixed-card-group--card-layout" cdkDropListGroup>
+    <div class="fd-fixed-card-group--card-layout-column" [cdkDropListData]="column" cdkDropList
+        *ngFor="let column of columns">
+        <ng-container *ngFor="let card of column; let i=index">
+            <div class="fd-fixed-card-group--card" cdkDrag (cdkDragDropped)="dragDrop($event)" [attr.tabindex]="i">
+                <ng-container *ngTemplateOutlet="card?.template"> </ng-container>
+            </div>
+        </ng-container>
+    </div>
+</div>
