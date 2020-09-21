@@ -8,7 +8,6 @@ import { FixedCardLayoutExampleComponent } from './examples/fixed-card-layout-ex
 import { CardComponent } from './examples/card.component';
 import { FixedCardLayoutModule } from '@fundamental-ngx/core';
 import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
-import { MatCardModule } from '@angular/material/card';
 
 const routes: Routes = [
     {
@@ -22,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes), SharedDocumentationPageModule, FixedCardLayoutModule, MatCardModule],
+    imports: [RouterModule.forChild(routes), SharedDocumentationPageModule, FixedCardLayoutModule],
     exports: [RouterModule],
     declarations: [
         CardComponent,
