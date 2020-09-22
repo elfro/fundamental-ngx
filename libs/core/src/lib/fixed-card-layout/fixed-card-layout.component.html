@@ -1,9 +1,18 @@
 <div #layout class="fd-fixed-card-group--card-layout" cdkDropListGroup>
     <div class="fd-fixed-card-group--card-layout-column" [cdkDropListData]="column" cdkDropList
-        *ngFor="let column of columns">
-        <ng-container *ngFor="let card of column; let i=index">
-            <div class="fd-fixed-card-group--card" cdkDrag (cdkDragDropped)="dragDrop($event)" [attr.tabindex]="i">
+        *ngFor="let column of columns" [cdkDropListDisabled]="disableDragDrop">
+        <ng-container *ngFor="let card of column; let i = index">
+            <div class="fd-fixed-card-group--card" cdkDrag [cdkDragData]="card" (cdkDragDropped)="dragDrop($event)"
+                [attr.tabindex]="i">
                 <ng-container *ngTemplateOutlet="card?.template"> </ng-container>
+
+                <div *cdkDragPlaceholder class="fd-fixed-card-group--card-placeholder">
+                    <ng-container *ngTemplateOutlet="card?.template"></ng-container>
+                </div>
+
+                <div *cdkDragPreview matchSize class="fd-fixed-card-group--card-preview">
+                    <ng-container *ngTemplateOutlet="card?.template"></ng-container>
+                </div>
             </div>
         </ng-container>
     </div>

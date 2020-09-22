@@ -1,13 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { FixedCardLayoutComponent, CardDefinitionDirective } from './fixed-card-layout.component';
 import { Component, ViewChild } from '@angular/core';
 
+import { FixedCardLayoutComponent, CardDefinitionDirective } from './fixed-card-layout.component';
 @Component({
     template: `
-        <div [ngStyle]="{ width: containerWidth }">
+        <div [style.width]="containerWidth">
             <fd-fixed-card-layout>
                 <li *fdCardDef>1</li>
                 <li *fdCardDef>2</li>
@@ -25,14 +24,14 @@ class TestFixedCardLayoutComponent {
     fixedCardLayout: FixedCardLayoutComponent;
 }
 
-describe('FixedCardLayoutComponent', () => {
+fdescribe('FixedCardLayoutComponent', () => {
     let component: TestFixedCardLayoutComponent;
     let fixture: ComponentFixture<TestFixedCardLayoutComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [FixedCardLayoutComponent, CardDefinitionDirective, TestFixedCardLayoutComponent],
-            imports: [CommonModule, FormsModule, DragDropModule]
+            imports: [CommonModule, DragDropModule]
         }).compileComponents();
     }));
 
@@ -60,78 +59,66 @@ describe('FixedCardLayoutComponent', () => {
 
     it('should have 4 columns on Laptop width size value of 1600px', async () => {
         await wait(fixture);
-        fixture.detectChanges();
 
         spyOn(component.fixedCardLayout, 'getWidthAvailable').and.returnValue(1600);
 
         component.fixedCardLayout.onResize();
         await wait(fixture);
-        fixture.detectChanges();
 
         expect(component.fixedCardLayout.columns.length).toEqual(4);
     });
 
     it('should have 1 columns on 500px width size value', async () => {
         await wait(fixture);
-        fixture.detectChanges();
 
         spyOn(component.fixedCardLayout, 'getWidthAvailable').and.returnValue(500);
 
         component.fixedCardLayout.onResize();
         await wait(fixture);
-        fixture.detectChanges();
 
         expect(component.fixedCardLayout.columns.length).toEqual(1);
     });
 
     it('should have 2 columns on 656px width size value', async () => {
         await wait(fixture);
-        fixture.detectChanges();
 
         spyOn(component.fixedCardLayout, 'getWidthAvailable').and.returnValue(656);
 
         component.fixedCardLayout.onResize();
         await wait(fixture);
-        fixture.detectChanges();
 
         expect(component.fixedCardLayout.columns.length).toEqual(2);
     });
 
     it('should have 3 columns on 992px width size value', async () => {
         await wait(fixture);
-        fixture.detectChanges();
 
         spyOn(component.fixedCardLayout, 'getWidthAvailable').and.returnValue(992);
 
         component.fixedCardLayout.onResize();
         await wait(fixture);
-        fixture.detectChanges();
 
         expect(component.fixedCardLayout.columns.length).toEqual(3);
     });
 
     it('should have 5 columns on 1664px width size value', async () => {
         await wait(fixture);
-        fixture.detectChanges();
 
         spyOn(component.fixedCardLayout, 'getWidthAvailable').and.returnValue(1664);
 
         component.fixedCardLayout.onResize();
         await wait(fixture);
-        fixture.detectChanges();
 
         expect(component.fixedCardLayout.columns.length).toEqual(5);
     });
 
     it('should have 1 columns on 300px width size value', async () => {
         await wait(fixture);
-        fixture.detectChanges();
 
         spyOn(component.fixedCardLayout, 'getWidthAvailable').and.returnValue(300);
 
         component.fixedCardLayout.onResize();
         await wait(fixture);
-        fixture.detectChanges();
 
         expect(component.fixedCardLayout.columns.length).toEqual(1);
     });

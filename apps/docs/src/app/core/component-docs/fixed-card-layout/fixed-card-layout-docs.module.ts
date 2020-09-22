@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ButtonModule, FixedCardLayoutModule } from '@fundamental-ngx/core';
+import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
 import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
+
 import { FixedCardLayoutDocsComponent } from './fixed-card-layout-docs.component';
 import { FixedCardLayoutDocsHeaderComponent } from './fixed-card-layout-docs-header/fixed-card-layout-docs-header.component';
-import { FixedCardLayoutExampleComponent } from './examples/fixed-card-layout-examples.component';
-import { CardComponent } from './examples/card.component';
-import { FixedCardLayoutModule } from '@fundamental-ngx/core';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { FixedCardLayoutDisabledDragExampleComponent } from './examples/disabledDragDrop/fixed-card-layout-disabled-drag.component';
+import { FixedCardLayoutExampleComponent } from './examples/default/fixed-card-layout-examples.component';
+import { CardComponent } from './DummyCardComponent/card.component';
 
 const routes: Routes = [
     {
@@ -21,12 +23,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes), SharedDocumentationPageModule, FixedCardLayoutModule],
+    imports: [RouterModule.forChild(routes), SharedDocumentationPageModule, FixedCardLayoutModule, ButtonModule],
     exports: [RouterModule],
     declarations: [
         CardComponent,
         FixedCardLayoutDocsComponent,
         FixedCardLayoutExampleComponent,
+        FixedCardLayoutDisabledDragExampleComponent,
         FixedCardLayoutDocsHeaderComponent
     ]
 })

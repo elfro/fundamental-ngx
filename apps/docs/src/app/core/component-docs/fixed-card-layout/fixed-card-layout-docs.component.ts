@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import * as fixedCardLayoutSrc from '!raw-loader!./examples/fixed-card-layout-examples.component.html';
+import * as fixedCardLayoutH from '!raw-loader!./examples/default/fixed-card-layout-examples.component.html';
+import * as disabledDragFixedCardLayoutH from '!raw-loader!./examples/disabledDragDrop/fixed-card-layout-disabled-drag.component.html';
+import * as disabledDragFixedCardLayoutTs from '!raw-loader!./examples/disabledDragDrop/fixed-card-layout-disabled-drag.component.ts';
 import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
 
 @Component({
@@ -10,8 +12,22 @@ export class FixedCardLayoutDocsComponent {
     defaultFixedCardLayout: ExampleFile[] = [
         {
             language: 'html',
-            code: fixedCardLayoutSrc,
+            code: fixedCardLayoutH,
             fileName: 'fixed-card-layout-examples'
+        }
+    ];
+
+    dragDisabledFixedCardLayout: ExampleFile[] = [
+        {
+            language: 'html',
+            code: disabledDragFixedCardLayoutH,
+            fileName: 'fixed-card-layout-disabled-drag'
+        },
+        {
+            language: 'typescript',
+            component: 'FixedCardLayoutDisabledDragExampleComponent',
+            code: disabledDragFixedCardLayoutTs,
+            fileName: 'fixed-card-layout-disabled-drag'
         }
     ];
 }

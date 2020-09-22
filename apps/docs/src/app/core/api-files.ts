@@ -41,7 +41,7 @@ export const API_FILES = {
     dropdown: ['PopoverDropdownComponent'],
     fileInput: ['FileInputComponent', 'FileInputSelectDirective', 'FileInputDragndropDirective'],
     fileUploader: ['FileUploaderComponent', 'FileUploaderSelectDirective', 'FileUploaderDragndropDirective'],
-    fixedCardLayout: ['FixedCardLayoutComponent'],
+    fixedCardLayout: ['FixedCardLayoutComponent', 'CardDefinitionDirective'],
     form: [
         'FormControlComponent',
         'FormGroupComponent',

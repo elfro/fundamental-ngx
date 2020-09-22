@@ -6,9 +6,13 @@ import {
     Component,
     ContentChildren,
     Directive,
+    DoCheck,
     ElementRef,
     EventEmitter,
-    HostListener,
+    Input,
+    IterableDiffers,
+    NgZone,
+    OnInit,
     Output,
     QueryList,
     TemplateRef,
@@ -39,7 +43,7 @@ type CardColumn = CardDefinitionDirective[];
     styleUrls: ['./fixed-card-layout.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FixedCardLayoutComponent implements AfterViewInit {
+export class FixedCardLayoutComponent implements OnInit, AfterViewInit, DoCheck {
     /** @hidden */
     @ContentChildren(CardDefinitionDirective)
     cards: QueryList<CardDefinitionDirective>;
@@ -47,6 +51,9 @@ export class FixedCardLayoutComponent implements AfterViewInit {
     /** @hidden */
     @ViewChild('layout')
     layout: ElementRef;
+
+    @Input()
+    disableDragDrop: boolean;
 
     /** Event to emit, when layout changes */
     @Output()
@@ -62,18 +69,42 @@ export class FixedCardLayoutComponent implements AfterViewInit {
     private numberOfColumns = 3;
     /** @hidden */
     private previousNumberOfColumns: number;
+    private differ: any;
 
     /** @hidden */
-    @HostListener('window:resize', [])
     onResize(): void {
         this.numberOfColumns = this.getNumberOfColumns();
         if (this.previousNumberOfColumns !== this.numberOfColumns) {
-            this.previousNumberOfColumns = this.numberOfColumns;
-            this._renderLayout();
+            this.ngZone.run(() => {
+                this.previousNumberOfColumns = this.numberOfColumns;
+                this._renderLayout();
+            });
         }
     }
 
-    constructor(private _cd: ChangeDetectorRef, public elementRef: ElementRef) {}
+    constructor(
+        private readonly _cd: ChangeDetectorRef,
+        private readonly elementRef: ElementRef,
+        private readonly ngZone: NgZone,
+        differs: IterableDiffers
+    ) {
+        this.differ = differs.find([]).create(null);
+    }
+
+    /** @hidden */
+    ngOnInit(): void {
+        this.ngZone.runOutsideAngular(() => {
+            this.elementRef.nativeElement.addEventListener('window:resize', this.onResize.bind(this));
+        });
+    }
+
+    /** @hidden */
+    ngDoCheck(): void {
+        const newCards = this.differ.diff(this.cards);
+        if (newCards) {
+            this._renderLayout();
+        }
+    }
 
     /** @hidden */
     ngAfterViewInit(): void {
@@ -101,7 +132,7 @@ export class FixedCardLayoutComponent implements AfterViewInit {
         return this.layout.nativeElement.getBoundingClientRect().width;
     }
 
-    /** @hidden, Returns number of columns that can fit in current available width for fd-card-layout */
+    /** @hidden Returns number of columns that can fit in current available width for fd-card-layout */
     private getNumberOfColumns(): number {
         let columnCount: number;
 
@@ -152,6 +183,6 @@ export class FixedCardLayoutComponent implements AfterViewInit {
         });
     }
 
-    /** Validate if content is fd-card only */
+    /** @hidden Validate if content is fd-card only */
     private validateContent(): void {}
 }
