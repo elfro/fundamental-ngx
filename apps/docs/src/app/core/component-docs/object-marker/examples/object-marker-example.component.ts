@@ -23,8 +23,8 @@ export class ObjectMarkerTextExampleComponent {}
     templateUrl: './object-marker-clickable-example.component.html'
 })
 export class ObjectMarkerClickableExampleComponent {
-    public glyph = 'private';
-    ChangeGlyph(): void {
+    glyph = 'private';
+    changeGlyph(): void {
         this.glyph = 'add-favorite';
     }
 }

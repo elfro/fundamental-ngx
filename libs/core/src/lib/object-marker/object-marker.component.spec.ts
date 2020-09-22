@@ -36,7 +36,7 @@ describe('ObjectMarkerComponent', () => {
         component.ngAfterViewInit();
         component.buildComponentCssClass();
         fixture.detectChanges();
-        expect(component.elementRef().nativeElement.firstChild.classList.contains('sap-icon--flag')).toBe(true);
+        expect(component.elementRef().nativeElement.firstElementChild.classList.contains('sap-icon--flag')).toBe(true);
     });
 
     it('Should Add Clickable Class', () => {

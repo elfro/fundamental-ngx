@@ -38,12 +38,11 @@ export class ObjectMarkerComponent implements OnChanges, OnInit, CssClassBuilder
     private oldGlyph: string;
 
     /** @hidden */
-    constructor(private readonly _elementRef: ElementRef, private renderer: Renderer2) {}
+    constructor(private readonly _elementRef: ElementRef, private readonly renderer: Renderer2) {}
 
     ngAfterViewInit(): void {
         if (this.glyph) {
             this.oldGlyph = this.glyph;
-            const parent = this._elementRef.nativeElement.parentNode;
             this.icon = this.renderer.createElement('i');
             this.icon.classList.add('fd-object-marker__icon');
             this.icon.classList.add('sap-icon--' + this.glyph);
@@ -80,7 +79,7 @@ export class ObjectMarkerComponent implements OnChanges, OnInit, CssClassBuilder
     }
 
     /** @hidden */
-    elementRef(): ElementRef<any> {
+    elementRef(): ElementRef<HTMLElement> {
         return this._elementRef;
     }
 }
