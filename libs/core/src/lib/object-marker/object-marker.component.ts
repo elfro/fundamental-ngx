@@ -33,16 +33,25 @@ export class ObjectMarkerComponent implements OnChanges, OnInit, CssClassBuilder
     @Input()
     clickable = false;
 
+    private icon: HTMLElement;
+
+    private oldGlyph: string;
+
     /** @hidden */
     constructor(private readonly _elementRef: ElementRef, private renderer: Renderer2) {}
 
     ngAfterViewInit(): void {
         if (this.glyph) {
+            this.oldGlyph = this.glyph;
             const parent = this._elementRef.nativeElement.parentNode;
-            const icon: HTMLImageElement = this.renderer.createElement('i');
-            icon.classList.add('fd-object-marker__icon');
-            icon.classList.add('sap-icon--' + this.glyph);
-            this.renderer.insertBefore(this._elementRef.nativeElement, icon, this._elementRef.nativeElement.firstChild);
+            this.icon = this.renderer.createElement('i');
+            this.icon.classList.add('fd-object-marker__icon');
+            this.icon.classList.add('sap-icon--' + this.glyph);
+            this.renderer.insertBefore(
+                this._elementRef.nativeElement,
+                this.icon,
+                this._elementRef.nativeElement.firstChild
+            );
         }
     }
 
@@ -52,6 +61,11 @@ export class ObjectMarkerComponent implements OnChanges, OnInit, CssClassBuilder
      * function is responsible for order which css classes are applied
      */
     buildComponentCssClass(): string[] {
+        if (this.icon) {
+            this.renderer.removeClass(this.icon, 'sap-icon--' + this.oldGlyph);
+            this.renderer.addClass(this.icon, 'sap-icon--' + this.glyph);
+            this.oldGlyph = this.glyph;
+        }
         return ['fd-object-marker', this.clickable ? 'fd-object-marker--link' : '', this.class];
     }
 

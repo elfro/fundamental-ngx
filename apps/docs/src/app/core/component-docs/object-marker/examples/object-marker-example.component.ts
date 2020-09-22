@@ -22,4 +22,9 @@ export class ObjectMarkerTextExampleComponent {}
     selector: 'fd-object-marker-clickable-example',
     templateUrl: './object-marker-clickable-example.component.html'
 })
-export class ObjectMarkerClickableExampleComponent {}
+export class ObjectMarkerClickableExampleComponent {
+    public glyph = 'private';
+    ChangeGlyph(): void {
+        this.glyph = 'add-favorite';
+    }
+}
